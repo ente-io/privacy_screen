@@ -42,14 +42,6 @@ class PrivacyScreenPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
             .lifecycle.addObserver(this)
     }
 
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: PluginRegistry.Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "channel.couver.privacy_screen")
-            channel.setMethodCallHandler(PrivacyScreenPlugin())
-        }
-    }
-
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         when (call.method) {
             "updateConfig" -> {
